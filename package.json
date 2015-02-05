@@ -1,7 +1,7 @@
 {
   "name": "gulp-dir",
   "description": "*nix-style gulp.d/ directory support for Gulp builds",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": "hiebj/gulp-dir",
   "author": "Jonathan Hieb",
   "tags": [
