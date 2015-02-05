@@ -14,7 +14,7 @@ $ npm install gulp-dir
 require('gulp-dir')();
 ```
 
-**gulp-dir** loads modules out of a subdirectory, named either `gulp/` or `gulp.d/`. This allows you to create very concise and modular build scripts. The approach is similar to the *nix `conf.d/` configuration directory pattern. Typically, each of these files will contain a small number of related task definitions; for example, one task module might contain **lint**, **watch** and **all** tasks for your app's JavaScript code, while another would contain tasks for your LESS/CSS.
+**gulp-dir** loads modules out of a subdirectory, named either `gulp/` or `gulp.d/`. This allows you to create very concise and modular build scripts. The approach is similar to the \*nix `conf.d/` configuration directory pattern. Typically, each of these files will contain a small number of related task definitions; for example, one task module might contain **lint**, **watch** and **all** tasks for your app's JavaScript code, while another would contain tasks for your LESS/CSS.
 
 All that is required to add a script to the build is to drop it into the directory and re-run your Gulp build. **gulp-dir** will automatically find the new script and incorporate it in the build process.
 
