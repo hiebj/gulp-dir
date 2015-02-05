@@ -4,12 +4,13 @@ function GulpDir() {
   var fs = require('fs'),
     path = require('path'),
     gulp = require('gulp'),
-    dir = path.join(__dirname, 'gulp'),
+    rootDir = process.env.INIT_CWD,
+    dir = path.join(rootDir, 'gulp'),
     args = arguments,
     metaTasks = {};
 
   if (!fs.existsSync(dir) || !fs.statSync(dir).isDirectory()) {
-    dir = path.join(__dirname, 'gulp.d')
+    dir = path.join(rootDir, 'gulp.d')
   }
 
   fs.readdirSync(dir).forEach(loadGulpModule);
