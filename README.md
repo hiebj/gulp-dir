@@ -25,7 +25,7 @@ Meta-tasks are simply wrapper tasks that depend on several other tasks, effectiv
 Task module:
 ```javascript
 var gulp = require('gulp');  
-gulp.task('app:lint', ...);  
+gulp.task('app:lint', ... );  
 gulp.task('app', ... );  
 gulp.task('app:watch', ... );  
 module.exports = {  
@@ -69,7 +69,7 @@ Task module:
 ```javascript
 var gulp = require('gulp');  
 module.exports = function(flags) {  
-  gulp.task('app:lint', ...);  
+  gulp.task('app:lint', ... );  
   gulp.task('app', ... );  
   gulp.task('app:watch', ... );  
   console.log(flags.production); // prints 'true'  
