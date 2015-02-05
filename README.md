@@ -76,7 +76,7 @@ module.exports = function(flags) {
   return {  
     all: 'app',  
     watch: 'app:watch'  
-  }  
+  };  
 };
 ```
 
