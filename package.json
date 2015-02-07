@@ -4,7 +4,7 @@
   "version": "0.0.5",
   "repository": "hiebj/gulp-dir",
   "author": "Jonathan Hieb",
-  "tags": [
+  "keywords": [
     "build",
     "stream",
     "gulp",
