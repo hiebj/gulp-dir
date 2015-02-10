@@ -16,5 +16,8 @@
       "type": "MIT",
       "url": "https://raw.githubusercontent.com/hiebj/gulp-dir/master/LICENSE"
     }
-  ]
+  ],
+  "dependencies": {
+    "require-all": "^1.0.0"
+  }
 }
