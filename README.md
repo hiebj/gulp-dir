@@ -4,17 +4,17 @@ A simple tool that allows you to split up your [Gulp](http://gulpjs.com/) build 
 
 ## Install
 
-```
+```shell
 $ npm install gulp-dir
 ```
 
 ## Usage
 
 ```javascript
-require('gulp-dir')();
+require('gulp-dir')('directory/');
 ```
 
-**gulp-dir** loads modules out of a subdirectory, named either `gulp/` or `gulp.d/`. This allows you to create very concise and modular build scripts. The approach is similar to the \*nix `conf.d/` configuration directory pattern. Typically, each of these files will contain a small number of related task definitions; for example, one task module might contain **lint**, **watch** and **all** tasks for your app's JavaScript code, while another would contain tasks for your LESS/CSS.
+**gulp-dir** loads modules out of the specified directory. This allows you to create very concise and modular build scripts. The approach is similar to the \*nix `conf.d/` configuration directory pattern. Typically, each of these files will contain a small number of related task definitions; for example, one task module might contain **lint**, **watch** and **all** tasks for your app's JavaScript code, while another would contain tasks for your LESS/CSS.
 
 All that is required to add a script to the build is to drop it into the directory and re-run your Gulp build. **gulp-dir** will automatically find the new script and incorporate it in the build process.
 
@@ -47,7 +47,7 @@ Meta-tasks can also be wrapped further into top-level tasks:
 
 ```javascript
 var gulp = require('gulp');  
-require('gulp-dir')();  
+require('gulp-dir')('gulp/');  
 gulp.task('default', ['all', 'watch']);  
 gulp.task('production', ['all']);
 ```
@@ -56,11 +56,11 @@ Note that if you create a meta-task called **default** it will be run when you e
 
 ## Parameters
 
-If you want to pass flags (e.g. production) or other parameters to your modules, simply pass those parameters to the main gulp-dir module function. To consume the parameters within a module, export a function rather than an object literal. The parameters will be passed through:
+If you want to pass flags (e.g. production) or other parameters to your modules, simply pass those parameters to the main gulp-dir module function as the second parameter. To consume the parameters within a module, export a function rather than an object literal. The parameters will be passed through:
 
 gulpfile.js:
 ```javascript
-require('gulp-dir')({  
+require('gulp-dir')('gulp/', {  
   production: true  
 });
 ```
@@ -80,7 +80,7 @@ module.exports = function(flags) {
 };
 ```
 
-Parameters of any type can be used; they are passed as-is using `module.apply(module, arguments)`.
+Parameters of any type can be used; they are passed as-is using `module.apply(module, args)`. Multiple parameters can be passed by wrapping them in an array.
 
 Just like typical Gulp usage, if you want a meta-task to wait for the completion of one of its subtasks, follow the asynchronous task hinting rules as described in the [Gulp api docs](https://github.com/gulpjs/gulp/blob/master/docs/API.md#async-task-support). All the subtasks within a meta-task will be executed concurrently, but the meta-task will wait for blocking subtasks before exiting.
 
