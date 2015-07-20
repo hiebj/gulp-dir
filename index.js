@@ -27,7 +27,15 @@ function GulpDir(dir, args) {
       }
       for (var metaTask in module) {
         metaTasks[metaTask] = metaTasks[metaTask] || [];
-        metaTasks[metaTask].push(module[metaTask]);
+        
+        var tasks = module[metaTask];
+        if (!util.isArray(tasks)) {
+          tasks = [tasks];
+        }
+
+        tasks.forEach(function(task){
+          metaTasks[metaTask].push(task);
+        });
       }
     }
   }
